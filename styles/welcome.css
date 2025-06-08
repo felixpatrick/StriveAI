@@ -8,11 +8,20 @@ main {
   margin-top: -9%;
   height: 100vh;
   background-image: linear-gradient(-225deg, #fffeff 0%, 100%);
+  /* border: 1rem solid #ddd; */
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  padding-inline: 20px;
+  justify-content: center;
+  height: auto;
 }
 
 .welcome {
   text-align: center;
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: #444;
   margin-bottom: 20px;
 }
@@ -27,9 +36,10 @@ main {
 }
 .user-input-container {
   position: absolute;
+  display: flex;
+  justify-content: center;
   top: 60%;
   left: 50%;
-  width: 100%;
   padding: 20px;
   transform: translate(-50%, -50%);
   /* background: rgba(0, 0, 0, 0.5); */
@@ -50,7 +60,7 @@ main {
 }
 
 .user-input-container .user-box input {
-  width: 90%;
+  width: 350px;
   padding: 10px 0;
   /* padding-inline: 30px; */
   font-size: 16px;
@@ -106,9 +116,12 @@ button:hover {
 
 /* Tablet: between 768px and 1023px */
 @media (min-width: 768px) and (max-width: 1023px) {
+  .main {
+    margin-top: -2%;
+  }
   .user-input-container {
     position: absolute;
-    top: 60%;
+    top: 55%;
     left: 50%;
     width: 600px;
     padding: 20px;
@@ -117,6 +130,12 @@ button:hover {
     box-sizing: border-box;
     /* box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); */
     border-radius: 10px;
+  }
+  button {
+    margin-left: 20px;
+  }
+  .welcome-text {
+    margin-bottom: 0;
   }
 }
 
@@ -132,7 +151,36 @@ button:hover {
     font-size: 1.6rem;
     color: #777;
     margin-top: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 0;
     text-align: center;
+  }
+
+  .user-input-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 45%;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    /* background: rgba(0, 0, 0, 0.5); */
+    box-sizing: border-box;
+    /* box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); */
+    border-radius: 10px;
+  }
+
+  .user-input-container .user-box input {
+    width: 550px;
+    padding: 10px 0;
+    /* padding-inline: 30px; */
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #777;
+    outline: none;
+    background: transparent;
+  }
+  button {
+    margin-left: 20px;
   }
 }
