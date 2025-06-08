@@ -1,3 +1,5 @@
+/* Mobile: up to 767px */
+
 main {
   display: flex;
   flex-direction: column;
@@ -9,23 +11,23 @@ main {
 }
 
 .welcome {
-  text-align: left;
-  font-size: 6.5rem;
+  text-align: center;
+  font-size: 4rem;
   color: #444;
   margin-bottom: 20px;
 }
 .welcome-text {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #777;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   text-align: center;
 }
 .user-input-container {
   position: absolute;
-  top: 55%;
+  top: 60%;
   left: 50%;
-  width: 600px;
+  width: 80%;
   padding: 20px;
   transform: translate(-50%, -50%);
   /* background: rgba(0, 0, 0, 0.5); */
@@ -63,7 +65,7 @@ main {
   left: 0;
   padding: 10px 0;
   font-size: 16px;
-  color: #444;
+  color: #666;
   pointer-events: none;
   transition: 0.5s;
 }
@@ -91,4 +93,42 @@ button:hover {
   background: #555;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 767px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Tablet: between 768px and 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .user-input-container {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 600px;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    /* background: rgba(0, 0, 0, 0.5); */
+    box-sizing: border-box;
+    /* box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); */
+    border-radius: 10px;
+  }
+}
+
+/* Desktop: 1024px and above */
+@media (min-width: 1024px) {
+  .welcome {
+    /* text-align: left; */
+    font-size: 6.5rem;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  .welcome-text {
+    font-size: 1.6rem;
+    color: #777;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
 }
