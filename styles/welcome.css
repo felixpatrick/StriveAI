@@ -5,7 +5,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: -5%;
+  margin-top: -9%;
   height: 100vh;
   background-image: linear-gradient(-225deg, #fffeff 0%, 100%);
 }
@@ -18,6 +18,8 @@ main {
 }
 .welcome-text {
   font-size: 1.4rem;
+  padding-inline: 40px;
+  line-height: 1.5;
   color: #777;
   margin-top: 10px;
   margin-bottom: 50px;
@@ -27,7 +29,7 @@ main {
   position: absolute;
   top: 60%;
   left: 50%;
-  width: 80%;
+  width: 100%;
   padding: 20px;
   transform: translate(-50%, -50%);
   /* background: rgba(0, 0, 0, 0.5); */
@@ -48,8 +50,9 @@ main {
 }
 
 .user-input-container .user-box input {
-  width: 100%;
+  width: 90%;
   padding: 10px 0;
+  /* padding-inline: 30px; */
   font-size: 16px;
   color: #666;
   margin-bottom: 30px;
