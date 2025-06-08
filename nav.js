@@ -1,14 +1,11 @@
+const timeNow = new Date();
+const dateNow = new Intl.DateTimeFormat("en-US", { dateStyle: "full" });
+const time = timeNow.toLocaleTimeString();
+
+document.querySelector(".current-time").textContent =
+  " " + dateNow.format(timeNow);
+
 function updateTime() {
-  const timeNow = new Date();
-  const dateNow = new Intl.DateTimeFormat("en-US", { dateStyle: "full" });
-  const time = timeNow.toLocaleTimeString();
-  const userName = localStorage.getItem("userName") || "Guest";
-  document.querySelector(".username").textContent = userName;
-
-  document.querySelector(".current-time").textContent =
-    " " + dateNow.format(timeNow);
-
-  // Set greeting based on time of day
   const greetingElement = document.querySelector(".greeting-message");
   const hour = timeNow.getHours();
 
@@ -20,4 +17,10 @@ function updateTime() {
     greetingElement.textContent = "Good Evening,";
   }
 }
+
+export function displayUserName() {
+  const userName = localStorage.getItem("userName") || "Guest";
+  document.querySelector(".username").textContent = userName;
+}
+
 updateTime();

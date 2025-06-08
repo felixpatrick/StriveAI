@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/content.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,7 @@
 
 <body>
 
-    <div class="site-header">
+    <section class="site-header">
         <nav class="navigation-bar">
             <div class="hamburger-menu"><span><i class="fa-solid fa-bars"></i></span></div>
             <a href="/index.html" class="logo-container">
@@ -37,11 +38,18 @@
                 <span class="profile-icon"><i class="fa-solid fa-circle-user"></i></span>
             </div>
         </nav>
+    </section>
+
+    <div class="content-container">
+        <h1 class="welcome-message">Ready to get started? <span class="username-contain"></span></h1>
+
+
     </div>
 
 
 
-    <script src="./nav.js"></script>
+    <script src="./nav.js" type="module"></script>
+    <script type="module" src="./content.js"></script>
     <script src="https://kit.fontawesome.com/31b96d7a78.js" defer crossorigin="anonymous"></script>
 
 </body>
