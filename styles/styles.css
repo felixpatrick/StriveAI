@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  /* background-image: linear-gradient(1000deg, #d5fc7923 0%, #96e6a1 05%); */
+  background-image: linear-gradient(-20deg, #e9defa60 100%, #fbfcdb2a 100%);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
