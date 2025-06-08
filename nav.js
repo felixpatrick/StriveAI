@@ -2,8 +2,9 @@ function updateTime() {
   const timeNow = new Date();
   const dateNow = new Intl.DateTimeFormat("en-US", { dateStyle: "full" });
   const time = timeNow.toLocaleTimeString();
+  const userName = localStorage.getItem("userName") || "Guest";
+  document.querySelector(".username").textContent = userName;
 
-  // Update the displayed time
   document.querySelector(".current-time").textContent =
     " " + dateNow.format(timeNow);
 

@@ -4,46 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/welcome.css">
     <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="./styles/navbar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
-    <title>Stive AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>Welcome to Strive Ai</title>
 </head>
 
 <body>
+    <main>
 
-    <div class="site-header">
-        <nav class="navigation-bar">
-            <div class="hamburger-menu"><span><i class="fa-solid fa-bars"></i></span></div>
-            <a href="/index.html" class="logo-container">
-                <img src="./images/strive-logo.png" alt="Strive AI Logo" class="site-logo">
-            </a>
-
-            <div class="user-info animate__animated animate__fadeInDown">
-                <div class="chat-summary"><span><i class="fa-solid fa-message"></i></span> Chat History</div>
-                <div class="username-container"><span class="greeting-message"></span> <span
-                        class="username">Felix</span>
-                </div>
-                <div class="time-display">
-                    <span class="current-time">12:45 PM</span>
-                </div>
+        <div class="container">
+            <div class="welcome-container animate__animated animate__fadeInDown">
+                <h1 class="welcome"> Welcome to Strive Ai!</h1>
+                <p class="welcome-text">I'd love to know your name before we begin. You can skip
+                    if you
+                    prefer.</p>
             </div>
 
-            <div class="profile-section">
-                <span class="profile-icon"><i class="fa-solid fa-circle-user"></i></span>
+
+            <div class="user-input-container">
+                <!-- <h2>Login</h2> -->
+                <form>
+                    <div class="user-box">
+                        <input type="text" name="username" required="" class="username-input">
+                        <label>Please, enter your first name</label>
+                        <button>Submit <span><i class="fa-regular fa-paper-plane"></i></span></button>
+                    </div>
+                </form>
             </div>
-        </nav>
-    </div>
+        </div>
 
 
+    </main>
 
-    <script src="./nav.js"></script>
     <script src="https://kit.fontawesome.com/31b96d7a78.js" defer crossorigin="anonymous"></script>
-
+    <script type="module" src="./index.js"></script>
 </body>
 
 </html>
