@@ -2,6 +2,7 @@ const timeNow = new Date();
 const dateNow = new Intl.DateTimeFormat("en-US", { dateStyle: "full" });
 const time = timeNow.toLocaleTimeString();
 
+// Update time display
 document.querySelector(".current-time").textContent =
   " " + dateNow.format(timeNow);
 
@@ -18,6 +19,7 @@ function updateTime() {
   }
 }
 
+// Display username from local storage
 export function displayUserName() {
   const userName = localStorage.getItem("userName") || "Guest";
   document.querySelector(".username").textContent = userName;

@@ -1,15 +1,100 @@
+/* MOBILE VIEW */
+
 .content-container {
   display: flex;
   flex-direction: column;
   /* align-items: center; */
   justify-content: center;
   padding: 20px;
-  /* background-color: red; */
 }
 .welcome-message {
   font-size: 2rem;
   color: #333;
-  text-align: left;
+  text-align: center;
   margin-left: 50px;
   margin-top: 50px;
+}
+.workspace-container {
+  width: 100%;
+  /* background-color: black; */
+  /* margin-inline: 50px; */
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+}
+/* === BASE STYLES (Mobile First) === */
+
+.chat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  place-content: center;
+  place-items: center;
+  margin-top: 50px;
+  gap: 30px;
+}
+
+.chat-box {
+  height: 150px;
+  width: 100%;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+  color: #333;
+  border: 1px solid lightgray;
+  background-blend-mode: lighten;
+  font-size: 1.2rem;
+  align-items: center;
+  border-radius: 5px;
+}
+
+/* Mobile icons span full width of 2 columns */
+.mobile-icons {
+  grid-column: span 2;
+  background-color: red;
+  width: 90%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hide desktop on mobile by default */
+.chat-desktop {
+  display: none;
+}
+
+.chat-tablet {
+  display: none;
+}
+
+/* === TABLET VIEW === */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .chat-tablet {
+    display: grid;
+    grid-template-columns: repeat(4, 150px);
+  }
+  .chat-mobile {
+    display: none;
+  }
+  .chat-desktop {
+    display: none;
+  }
+}
+
+/* === DESKTOP VIEW === */
+@media (min-width: 1024px) {
+  .chat-desktop {
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+  }
+
+  .chat-mobile {
+    display: none;
+  }
+  .chat-tablet {
+    display: none;
+  }
 }
