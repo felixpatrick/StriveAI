@@ -32,7 +32,6 @@
   margin-top: 50px;
   gap: 30px;
 }
-
 .chat-box {
   height: 150px;
   width: 100%;
@@ -40,14 +39,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  text-align: center;
+  padding: 10px;
+  /* text-align: center; */
   color: #333;
-  border: 1px solid lightgray;
+  border: 1px solid rgb(235, 70, 70);
   background-blend-mode: lighten;
-  font-size: 1.2rem;
-  align-items: center;
-  border-radius: 5px;
+  font-size: 1.5rem;
 }
 
 /* Mobile icons span full width of 2 columns */
