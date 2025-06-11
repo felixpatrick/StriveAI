@@ -22,3 +22,21 @@ const limitChatText = () => {
 };
 
 limitChatText();
+function openChat() {
+  const workspace = document.querySelector(".workspace-container");
+  const chatThread = document.querySelector(".chat-thread");
+
+  workspace.classList.add("hidden");
+  chatThread.classList.remove("hidden");
+}
+
+// // Optional: Add a back button or logic to go back to history
+// function showChatHistory() {
+//   const workspace = document.querySelector(".workspace-container");
+//   const chatThread = document.querySelector(".chat-thread");
+
+//   chatThread.classList.add("hidden");
+//   workspace.classList.remove("hidden");
+// }
+
+// openChat();
