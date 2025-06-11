@@ -10,13 +10,13 @@ const displayName = () => {
 
 displayName();
 
-const chatBoxes = document.querySelectorAll(".chat-box");
+const chatBoxes = document.querySelectorAll(".chat-content");
 
 const limitChatText = () => {
   chatBoxes.forEach((box) => {
     const text = box.innerText;
     if (text.length > 100) {
-      box.innerText = text.slice(0, 100) + "...";
+      box.innerText = text.slice(0, 99) + "...";
     }
   });
 };
