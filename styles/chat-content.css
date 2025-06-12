@@ -1,6 +1,9 @@
 .chat-thread__container {
   width: 100%;
   min-width: 250px;
+  /* background-color: red; */
+  height: 470px;
+  overflow-y: auto;
   display: flex;
   color: white;
   justify-self: center;
@@ -41,6 +44,8 @@
 .chat-message__text {
   font-size: 1.8rem;
   line-height: 1.4;
+  word-wrap: break-word;
+  white-space: pre-line;
 }
 
 .chat-message__avatar {
