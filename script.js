@@ -2,6 +2,31 @@ const chatThreadContainer = document.querySelector(".chat-thread__container");
 const messageBoxEl = document.querySelector(".chat-message");
 const messageInputEl = document.querySelector("#messageInput");
 const messageFormEl = document.querySelector(".messageBox");
+const chatHistory = [];
+
+const API_KEY = "AIzaSyDtUV61WATKU7nOQ3ONDrkHjPvAz9DCjG4";
+const myAPI = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
+
+// Templates
+const createUserMessage = (text) => `
+  <div class="chat-message__row chat-message__row--reversed">
+    <div class="chat-message__content chat-message__content--alt">
+      <h2 class="chat-message__sender">You</h2>
+      <p class="chat-message__text">${text}</p>
+    </div>
+    <img src="./images/favour.png" alt="User avatar" class="chat-message__avatar" />
+  </div>
+`;
+
+const createAIMessageContainer = () => `
+  <div class="chat-message__row ai-chat-message-row">
+    <img src="./images/favour.png" alt="AI avatar" class="chat-message__avatar" />
+    <div class="chat-message__content">
+      <h2 class="chat-message__sender">Favour</h2>
+      <p class="chat-message__text"></p>
+    </div>
+  </div>
+`;
 
 const skeletonLoaderHTML = `
   <div class="chat-message__row chat-skeleton" id="skeletonLoader">
@@ -13,61 +38,90 @@ const skeletonLoaderHTML = `
     </div>
   </div>
 `;
-const handleUserInput = (event) => {
-  event.preventDefault();
+
+// Typing animation
+const typeText = (el, text, delay = 30) => {
+  let index = 0;
+  const interval = setInterval(() => {
+    if (index < text.length) {
+      el.textContent += text.charAt(index);
+      chatThreadContainer.scrollTop = chatThreadContainer.scrollHeight;
+      index++;
+    } else {
+      clearInterval(interval);
+    }
+  }, delay);
+};
+
+// Helper to scroll to the bottom
+const scrollToBottom = () => {
+  chatThreadContainer.scrollTop = chatThreadContainer.scrollHeight;
+};
+
+// AI response function
+const fetchAIResponse = async (userInput) => {
+  chatHistory.push({
+    role: "user",
+    parts: [{ text: userInput }],
+  });
+
+  try {
+    const response = await fetch(myAPI, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ contents: chatHistory }),
+    });
+
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error.message);
+
+    const aiText =
+      data.candidates[0].content.parts[0].text ||
+      "I'm not sure how to respond to that.";
+    return aiText.replace(/\*\*(.*?)\*\*/g, "$1").trim();
+  } catch (error) {
+    console.error("API Error:", error);
+    return "Sorry, something went wrong.";
+  }
+};
+
+// Main handler
+const handleUserInput = async (e) => {
+  e.preventDefault();
 
   const userInput = messageInputEl.value.trim();
   if (!userInput) return;
 
-  //   hide chat history block
-  if (messageBoxEl) {
-    document.querySelectorAll(".chat-box").forEach((item) => {
-      item.style.display = "none";
-    });
-  }
+  // Hide chat-box elements (if needed)
+  document.querySelectorAll(".chat-box").forEach((item) => {
+    item.style.display = "none";
+  });
 
-  const messageHTML = `
-      <div class="chat-message__row chat-message__row--reversed">
-        <div class="chat-message__content chat-message__content--alt">
-          <h2 class="chat-message__sender">You</h2>
-          <p class="chat-message__text">${userInput}</p>
-        </div>
-        <img src="./images/favour.png" alt="User avatar" class="chat-message__avatar" />
-      </div>
-    `;
-
-  messageBoxEl.insertAdjacentHTML("beforeend", messageHTML);
+  // Show user's message
+  messageBoxEl.insertAdjacentHTML("beforeend", createUserMessage(userInput));
+  scrollToBottom();
   messageInputEl.value = "";
 
-  // Scroll to bottom
-  chatThreadContainer.scrollTop = chatThreadContainer.scrollHeight;
-
-  // Add skeleton
+  // Show skeleton loader
   messageBoxEl.insertAdjacentHTML("beforeend", skeletonLoaderHTML);
-  chatThreadContainer.scrollTop = chatThreadContainer.scrollHeight;
+  scrollToBottom();
 
-  setTimeout(() => {
-    const skeletonEl = document.querySelector("#skeletonLoader");
-    if (skeletonEl) skeletonEl.remove();
+  // Get AI response
+  const aiReply = await fetchAIResponse(userInput);
 
-    const aiMessageHTML = `
-        <div class="chat-message__row ai-chat-message-row">
-          <div class="chat-message__content">
-            <p class="chat-message__text">Just a moment....</p>
-          </div>
-        </div>
-      `;
-    messageBoxEl.insertAdjacentHTML("beforeend", aiMessageHTML);
+  // Remove loader
+  const skeleton = document.querySelector("#skeletonLoader");
+  if (skeleton) skeleton.remove();
 
-    // Scroll to bottom again after AI response
-    chatThreadContainer.scrollTop = chatThreadContainer.scrollHeight;
-  }, 1200);
+  // Add empty AI message container
+  messageBoxEl.insertAdjacentHTML("beforeend", createAIMessageContainer());
+  const lastAITextEl = messageBoxEl.querySelector(
+    ".chat-message__row.ai-chat-message-row:last-child .chat-message__text"
+  );
 
-  if (messageBoxEl) {
-    document.querySelectorAll(".chat-box").forEach((item) => {
-      item.style.display = none;
-    });
-  }
+  // Animate typing
+  typeText(lastAITextEl, aiReply);
+  scrollToBottom();
 };
 
 messageFormEl.addEventListener("submit", handleUserInput);
