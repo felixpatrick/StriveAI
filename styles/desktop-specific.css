@@ -1,0 +1,13 @@
+@media (min-width: 1024px) {
+  .chat-thread__container {
+    width: 70%;
+  }
+  .chat-box {
+    /* width: 50%; */
+  }
+  .chat-message__content {
+    flex-basis: 60%;
+
+    /* background-color: red; */
+  }
+}

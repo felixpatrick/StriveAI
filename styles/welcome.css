@@ -8,7 +8,6 @@ main {
   margin-top: -9%;
   height: 100vh;
   background-image: linear-gradient(-225deg, #fffeff 0%, 100%);
-  /* border: 1rem solid #ddd; */
 }
 
 .container {
@@ -42,9 +41,7 @@ main {
   left: 50%;
   padding: 20px;
   transform: translate(-50%, -50%);
-  /* background: rgba(0, 0, 0, 0.5); */
   box-sizing: border-box;
-  /* box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); */
   border-radius: 10px;
 }
 

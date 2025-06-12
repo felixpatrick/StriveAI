@@ -16,8 +16,6 @@
 }
 .workspace-container {
   width: 100%;
-  /* background-color: black; */
-  /* margin-inline: 50px; */
   display: flex;
   justify-content: center;
   justify-self: center;
@@ -40,10 +38,10 @@
   flex-direction: column;
   justify-content: start;
   /* align-items: center; */
-  padding: 20px;
+  padding: 15px;
   /* text-align: center; */
   color: #333;
-  border: 1px solid rgb(235, 70, 70);
+  border: 1px solid grey;
   /* background-blend-mode: lighten; */
   font-size: 1.5rem;
   /* display: flex; */
@@ -59,7 +57,7 @@
 /* Mobile icons span full width of 2 columns */
 .mobile-icons {
   grid-column: span 2;
-  background-color: red;
+  background-color: grey;
   width: 90%;
   height: 50px;
   display: flex;
@@ -113,7 +111,6 @@
   }
   .chat-content {
     color: black;
-    background-color: rgb(235, 186, 229);
     font-size: 1.4rem;
     line-height: 1.3;
   }
